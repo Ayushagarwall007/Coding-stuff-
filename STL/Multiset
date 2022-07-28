@@ -1,0 +1,163 @@
+The multiset::insert() is a built-in function in C++ STL which insert elements in the multiset container or inserts the elements from a position to another 
+position from one multiset to a different multiset. 
+
+Syntax: 
+iterator multiset_name.insert(element)
+Time Complexity: O(log n)
+Since the elements are always in sorted order, the newly inserted elements should be added to its sorted order place and for finding the exact position of new 
+element, a binary search is performed internally. Thus the binary search takes log n time to find the position to insert. Thus making the overall insertion time
+complexity as O(log n).
+
+Parameters: The function accepts a mandatory parameter element which is to be inserted in the multiset container. 
+
+Return Value: The function returns an iterator pointing to the inserted element in the multiset container. 
+// C++ program to demonstrate the
+// multiset::insert(element) function
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+ 
+    multiset<int> s;
+ 
+    // Function to insert elements
+    // in the set container
+    s.insert(1);
+    s.insert(4);
+    s.insert(1);
+    s.insert(5);
+    s.insert(1);
+ 
+    cout << "The elements in multiset are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}
+Output: 
+The elements in multiset are: 1 1 1 4 5
+ 
+
+Syntax: 
+iterator multiset_name.insert(iterator position, element)
+Parameters: The function accepts two parameters which are described below: 
+
+element: It specifies the element to be inserted in the multiset container.
+position: It does not specify the position where the insertion is to be done, it only points to a position from where the searching operation is to be started for insertion to make the process faster. The insertion is done according to the order which is followed by the multiset container.
+Return Value: The function returns an iterator pointing to the inserted element in the multiset container.
+
+Below program illustrates the above function:
+
+
+// C++ program to demonstrate the
+// multiset::insert(iterator, element) function
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+ 
+    multiset<int> s;
+ 
+    // Function to insert elements
+    // in the set container
+    auto itr = s.insert(s.begin(), 1);
+ 
+    // the time taken to insertion
+    // is very less as the correct
+    // position for insertion is given
+    itr = s.insert(itr, 4);
+    itr = s.insert(itr, 1);
+    itr = s.insert(itr, 5);
+ 
+    // Slow insertion as position is
+    // not given correctly
+    itr = s.insert(s.begin(), 3);
+ 
+    cout << "The elements in multiset are: ";
+    for (auto it = s.begin(); it != s.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}
+Output:
+
+The elements in multiset are: 1 1 3 4 5
+Syntax: 
+iterator multiset_name.insert(iterator position1, iterator position2)
+Parameters: The function accepts two parameters position1 and position2 which specifies the range of elements. All the elements in the range [position1, last) are inserted in another set container. 
+
+Return Value: The function returns a multiset which has all the elements in range [position1, last). 
+
+Below program illustrates the above function: 
+
+
+// C++ program to demonstrate the
+// multiset::insert(iteratorposition1, iteratorposition2) function
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+ 
+    multiset<int> s1;
+ 
+    // Function to insert elements
+    // in the set container
+    s1.insert(1);
+    s1.insert(4);
+    s1.insert(1);
+    s1.insert(5);
+    s1.insert(1);
+    s1.insert(3);
+ 
+    cout << "The elements in multiset1 are: ";
+    for (auto it = s1.begin(); it != s1.end(); it++)
+        cout << *it << " ";
+ 
+    multiset<int> s2;
+ 
+    // Function to insert one multiset to another
+    // all elements from where 3 is to end is
+    // inserted to multiset2
+    s2.insert(s1.find(3), s1.end());
+ 
+    cout << "\nThe elements in multiset2 are: ";
+    for (auto it = s2.begin(); it != s2.end(); it++)
+        cout << *it << " ";
+ 
+    return 0;
+}
+Output: 
+The elements in multiset1 are: 1 1 1 3 4 5 
+The elements in multiset2 are: 3 4 5
+
+
+
+begin()	Returns an iterator to the first element in the multiset.
+end()	Returns an iterator to the theoretical element that follows the last element in the multiset.
+size()	Returns the number of elements in the multiset.
+max_size()	Returns the maximum number of elements that the multiset can hold.
+empty()	Returns whether the multiset is empty.
+pair insert(const g)	Adds a new element ‘g’ to the multiset.
+iterator insert (iterator position,const g)	Adds a new element ‘g’ at the position pointed by the iterator.
+erase(iterator position)	Removes the element at the position pointed by the iterator.
+erase(const g)	Removes the value ‘g’ from the multiset.
+clear()	Removes all the elements from the multiset.
+key_comp() / value_comp()	Returns the object that determines how the elements in the multiset are ordered (‘<‘ by default).
+find(const g)	Returns an iterator to the element ‘g’ in the multiset if found, else returns the iterator to end.
+count(const g)	Returns the number of matches to element ‘g’ in the multiset.
+lower_bound(const g)	Returns an iterator to the first element that is equivalent to ‘g’ or definitely will not go before the element ‘g’ in the multiset
+if found, else returns the iterator to end.
+upper_bound(const g)	Returns an iterator to the first element that will go after the element ‘g’ in the multiset.
+multiset::swap()	This function is used to exchange the contents of two multisets but the sets must be of the same type, although sizes may differ.
+multiset::operator=	This operator is used to assign new contents to the container by replacing the existing contents.
+multiset::emplace()	This function is used to insert a new element into the multiset container.
+multiset equal_range()	Returns an iterator of pairs. The pair refers to the range that includes all the elements in the container which have a key equivalent
+to k.
+multiset::emplace_hint()	Inserts a new element in the multiset.
+multiset::rbegin()	Returns a reverse iterator pointing to the last element in the multiset container.
+multiset::rend()	Returns a reverse iterator pointing to the theoretical element right before the first element in the multiset container.
+multiset::cbegin()	Returns a constant iterator pointing to the first element in the container.
+multiset::cend()	Returns a constant iterator pointing to the position past the last element in the container.
+multiset::crbegin()	Returns a constant reverse iterator pointing to the last element in the container.
+multiset::crend()	Returns a constant reverse iterator pointing to the position just before the first element in the container.
+multiset::get_allocator()	Returns a copy of the allocator object associated with the multiset.
