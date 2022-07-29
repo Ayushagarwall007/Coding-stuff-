@@ -1,0 +1,1 @@
+for dividing the number by 2 instead of doing n/2 we can use n>>1 ie we can right shift the number by 2.
