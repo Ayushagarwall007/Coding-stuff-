@@ -1,0 +1,9 @@
+ Library: 'algorithm'
+ __gcd(m, n) 
+Parameter :  m, n
+Return Value :  0 if both m and n are zero, 
+else gcd of m and n.
+
+
+
+this functin __gcd(a,b) does not accept the floating point datatypes ans it will show error ....
