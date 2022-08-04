@@ -1,1 +1,2 @@
-for dividing the number by 2 instead of doing n/2 we can use n>>1 ie we can right shift the number by 2.
+for dividing the number by 2 instead of doing n/2 we can use n>>1 ie we can right shift the number by 1.
+for multiplying the number by 2 insteaof doing n*3 we can use n<<1 ie  we will do right shift by 1;
