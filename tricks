@@ -1,2 +1,46 @@
 for dividing the number by 2 instead of doing n/2 we can use n>>1 ie we can right shift the number by 1.
 for multiplying the number by 2 insteaof doing n*3 we can use n<<1 ie  we will do right shift by 1;
+
+
+TO FIND THE NUMBER OF DIGITS IN THE NUMBER  USING BIT MANIPULATION WE USE THE FORMULAE:-
+no of digits in the number n with base b= (logn base b)+1;
+ie n=(log(n) base x/ log(b) with base x) +1;
+in cpp we use the function log2(n) or log10(n) to find the log of the number in base 10 or in base 2 and the we can solve accordingly....\
+
+
+
+to find gcd of two numbers 
+// C++ program to find GCD of two numbers
+#include <iostream>
+using namespace std;
+// Recursive function to return gcd of a and b
+int gcd(int a, int b)
+{
+	// Everything divides 0
+	if (a == 0)
+	return b;
+	if (b == 0)
+	return a;
+
+	// base case
+	if (a == b)
+		return a;
+
+	// a is greater
+	if (a > b)
+		return gcd(a-b, b);
+	return gcd(a, b-a);
+}
+
+// Driver program to test above function
+int main()
+{
+	int a = 98, b = 56;
+	cout<<"GCD of "<<a<<" and "<<b<<" is "<<gcd(a, b);
+	return 0;
+}
+
+
+
+
+
