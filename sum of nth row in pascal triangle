@@ -1,0 +1,5 @@
+  to find the sum of nth row in the pascal triangle we use the formulae
+  
+  
+  for nth row we use the formulae
+  1<<(n-1) ie 2^n-1;
