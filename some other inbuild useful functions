@@ -1,0 +1,2 @@
+accumulate()-> this funcrtion is used to add the values of all the elements in the array
+accumulate(arr.begin(),arr.end)
