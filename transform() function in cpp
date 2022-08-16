@@ -1,0 +1,36 @@
+using transform operator we can add two arrays o fthe same size  in a sinfle line of code
+// Using transform() in STL to add two arrays
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+int arr1[] = {1, 2, 3};
+int arr2[] = {4, 5, 6};
+int n = sizeof(arr1)/sizeof(arr1[0]);
+int res[n];
+
+// Single line code to add arr1[] and arr2[] and
+// store result in res[]
+transform(arr1, arr1+n, arr2, res, plus<int>());
+
+for (int i=0; i<n; i++)
+	cout << res[i] << " ";
+}
+
+
+
+Binary Operation : Applies a binary operator on input to convert into output 
+transform(Iterator inputBegin1, Iterator inputEnd1, 
+         Iterator inputBegin2, Iterator OutputBegin, 
+         binary_operation) 
+The example mentioned above for adding two arrays is an example of transform with binary operation. 
+ 
+More examples: 
+We can use transform to convert a string to upper case (See this) 
+We can modify above examples for vectors also. 
+
+    
+    // vect is a vector of integers.
+    transform(vect.begin(), vect.end(), 
+              vect.begin(), increment); 
